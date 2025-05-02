@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSME SCHEMS</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to Custom CSS -->
+    {% load static %}
+    <link href="{% static 'css/main_page1.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header -->
+<header class="container-fluid d-flex flex-wrap justify-content-between align-items-center py-3 px-4">
+    <div class="main_page1-logo">MSME SCHEMS</div>
+    <nav class="main_page1-nav d-none d-md-flex gap-3">
+        <a href={% url "index" %}>Home</a>
+        <a href={% url "schemes" %}>Schemes</a>
+        <a href="#">Blocks</a>
+        <a href="#">Accounts</a>
+        <a href="#">Docs</a>
+    </nav>
+    <div class="main_page1-buttons d-flex gap-2">
+        <button class="btn btn-outline-light btn-sm">Login</button>
+        <button class="btn btn-primary btn-sm">Create account</button>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="main_page1-hero container text-center py-5">
+    <h1 class="display-5 fw-bold">SEARCH MY MSME SCHEMS IN INDIA</h1>
+    <p class="lead mb-4">Find Best Schmes, Funding, Startup Plan Support , Business Loan Assistance many more think in just One call ...</p>
+    <div class="main_page1-hero-buttons d-flex justify-content-center gap-3">
+        <button class="btn btn-success">Check My Eligibility</button>
+        <button class="btn btn-outline-light">Book an Appointment</button>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="main_page1-features container py-5">
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+            <h3>Industry</h3>
+            <div class="main_page1-feature-card text-center hover-popup" style="background-image: url('static/images/industry.png');
+             background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;">
+                
+             
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <h3>State</h3>
+            <div class="main_page1-feature-card text-center hover-popup" style="background-image: url('static/images/state.jpg');
+            background-size: cover;
+           background-repeat: no-repeat;
+           background-position: center;">
+                
+               
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <h3>Bank</h3>
+            <div class="main_page1-feature-card text-center hover-popup" style="background-image: url('static/images/loan_1.png');
+            background-size: cover;
+           background-repeat: no-repeat;
+           background-position: center;">
+                
+             
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <h3>Sector</h3>
+            <div class="main_page1-feature-card text-center hover-popup" style="background-image: url('static/images/sector.png');
+            background-size: cover;
+           background-repeat: no-repeat;
+           background-position: center;">
+              
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Services Section -->
+<section class="services-section container py-5">
+    <h2 class="text-center mb-4">Services</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <h3>Start a Company</h3>
+            <div class="service-card text-white text-center hover-popup p-4" style="background-image: url('static/images/startup.png');">
+                
+                <button class="btn btn-outline-light mt-3">Click Here →</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3>Bank Loan</h3>
+            <div class="service-card text-white text-center hover-popup p-4" style="background-image: url('static/images/loan.png');">
+             
+                <button class="btn btn-outline-light mt-3">Click Here →</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3>International Bussiness </h3>
+            <div class="service-card text-white text-center hover-popup p-4" style="background-image: url('static/images/Bus_inter.png');">
+               
+                <button class="btn btn-outline-light mt-3">Click Here →</button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Update Popup Section -->
+<section class="content-container">
+    <div class="ticker-section">
+      <section class="update-ticker">
+        <div class="ticker-wrapper">
+          <div class="ticker-move">
+            <div class="ticker-item">🚀 Version 2.0 released with bug fixes!</div>
+            <div class="ticker-item">🔥 New dashboard feature now live.</div>
+            <div class="ticker-item">📢 Maintenance scheduled on May 5.</div>
+            <div class="ticker-item">💡 Tips: Use shortcuts to boost productivity.</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  
+    {% comment %} <div class="video-section">
+        <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/fDGmk4s-HoQ?controls=0&rel=0&playsinline=1&cc_load_policy=0&enablejsapi=1&loop=1&playlist=fDGmk4s-HoQ&autoplay=1" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen 
+                loop 
+                style="pointer-events: none;">
+        </iframe>
+      </div> {% endcomment %}
+  </section>
+  
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
