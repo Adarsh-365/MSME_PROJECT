@@ -82,7 +82,7 @@ def mainpage(request,scheme):
             SCHEMESLIST= data['Scheme'][SCHEME][MainSchems][subscheme][subsubscheme]
             
       
-            return render(request, 'mainpage.html',{'scheme': SCHEMESLIST})
+            return render(request, 'mainpage.html',{'scheme': SCHEMESLIST,"schemename":subsubscheme})
 
 def subsubscheme(request,scheme):
   
@@ -101,7 +101,7 @@ def subsubscheme(request,scheme):
                 # print(SCHEMESLIST)
                 SCHEMESLIST= data['Scheme'][SCHEME][MainSchems][scheme]['NaN']
                 # print(SCHEMESLIST)
-                return render(request, 'mainpage.html',{'scheme': SCHEMESLIST})
+                return render(request, 'mainpage.html',{'scheme': SCHEMESLIST,"schemename":scheme})
             return render(request, 'subsubscheme.html',{"SCHEMESLIST": SCHEMESLIST})
 
 
@@ -123,5 +123,5 @@ def SUB_SCHEMES(request,scheme):
                 # print(SCHEMESLIST)
                 SCHEMESLIST= data['Scheme'][SCHEME][scheme]['NaN']['NaN']
           
-                return render(request, 'mainpage.html',{'scheme': SCHEMESLIST})
+                return render(request, 'mainpage.html',{'scheme': SCHEMESLIST,"schemename":scheme})
             return render(request, 'subscheme.html',{"SCHEMESLIST": SCHEMESLIST})

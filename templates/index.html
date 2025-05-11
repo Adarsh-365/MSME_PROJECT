@@ -5,27 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MSME SCHEMS</title>
     <!-- Link to Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Link to Custom CSS -->
     {% load static %}
     <link href="{% static 'css/main_page1.css' %}" rel="stylesheet">
 </head>
 <body>
-
 <!-- Header -->
-<header class="container-fluid d-flex flex-wrap justify-content-between align-items-center py-3 px-4">
-    <div class="main_page1-logo">MSME SCHEMS</div>
-    <nav class="main_page1-nav d-none d-md-flex gap-3">
-        <a href={% url "index" %}>Home</a>
-        <a href={% url "schemes" %}>Schemes</a>
-        <a href="#">Blocks</a>
-        <a href="#">Accounts</a>
-        <a href="#">Docs</a>
+<header class="container-fluid py-3 px-4 bg-dark">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="main_page1-logo text-white fw-bold fs-4">MSME SCHEMS</div>
+
+    <!-- Toggle button for mobile -->
+    <button class="navbar-toggler d-md-none border-0 bg-transparent text-white" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNavbar" aria-controls="mobileNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+
+  <!-- Collapsible menu -->
+  <div class="collapse navbar-collapse d-md-flex justify-content-between align-items-center mt-3 mt-md-0" id="mobileNavbar">
+    <nav class="main_page1-nav d-flex flex-column flex-md-row gap-3 mb-3 mb-md-0">
+      <a href="{% url 'index' %}" class="text-white">Home</a>
+      <a href="{% url 'schemes' %}" class="text-white">Schemes</a>
+      <a href="#" class="text-white">Blocks</a>
+      <a href="#" class="text-white">Accounts</a>
+      <a href="#" class="text-white">Docs</a>
     </nav>
-    <div class="main_page1-buttons d-flex gap-2">
-        <button class="btn btn-outline-light btn-sm">Login</button>
-        <button class="btn btn-primary btn-sm">Create account</button>
+    <div class="main_page1-buttons d-flex flex-column flex-md-row gap-2">
+      <button class="btn btn-outline-light btn-sm">Login</button>
+      <button class="btn btn-primary btn-sm">Create account</button>
     </div>
+  </div>
+
+  <!-- Inline CSS to fix hamburger icon visibility -->
+  <style>
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+      width: 1.5em !important;
+      height: 1.5em !important;
+      display: inline-block !important;
+    }
+    .navbar-toggler {
+      padding: 0.25rem 0.75rem !important;
+    }
+  </style>
 </header>
 
 <!-- Hero Section -->
@@ -43,47 +66,38 @@
     <div class="row g-4">
         <div class="col-md-6 col-lg-3">
             <h3>Industry</h3>
-            <div class="main_page1-feature-card text-center hover-popup" style="background-image: url('static/images/industry.png');
+            <div class="main_page1-feature-card text-center hover-popup" style="background-image: url('{% static 'images/industry.png' %}');
              background-size: cover;
             background-repeat: no-repeat;
             background-position: center;">
-                
-             
             </div>
         </div>
         <div class="col-md-6 col-lg-3">
             <h3>State</h3>
-            <div class="main_page1-feature-card text-center hover-popup" style="background-image: url('static/images/state.jpg');
+            <div class="main_page1-feature-card text-center hover-popup" style="background-image: url('{% static 'images/state.jpg' %}');
             background-size: cover;
            background-repeat: no-repeat;
            background-position: center;">
-                
-               
             </div>
         </div>
         <div class="col-md-6 col-lg-3">
             <h3>Bank</h3>
-            <div class="main_page1-feature-card text-center hover-popup" style="background-image: url('static/images/loan_1.png');
+            <div class="main_page1-feature-card text-center hover-popup" style="background-image: url('{% static 'images/loan_1.png' %}');
             background-size: cover;
            background-repeat: no-repeat;
            background-position: center;">
-                
-             
             </div>
         </div>
         <div class="col-md-6 col-lg-3">
             <h3>Sector</h3>
-            <div class="main_page1-feature-card text-center hover-popup" style="background-image: url('static/images/sector.png');
+            <div class="main_page1-feature-card text-center hover-popup" style="background-image: url('{% static 'images/sector.png' %}');
             background-size: cover;
            background-repeat: no-repeat;
            background-position: center;">
-              
-               
             </div>
         </div>
     </div>
 </section>
-
 
 <!-- Services Section -->
 <section class="services-section container py-5">
@@ -91,27 +105,25 @@
     <div class="row g-4">
         <div class="col-md-4">
             <h3>Start a Company</h3>
-            <div class="service-card text-white text-center hover-popup p-4" style="background-image: url('static/images/startup.png');">
-                
+            <div class="service-card text-white text-center hover-popup p-4" style="background-image: url('{% static 'images/startup.png' %}');">
                 <button class="btn btn-outline-light mt-3">Click Here →</button>
             </div>
         </div>
         <div class="col-md-4">
             <h3>Bank Loan</h3>
-            <div class="service-card text-white text-center hover-popup p-4" style="background-image: url('static/images/loan.png');">
-             
+            <div class="service-card text-white text-center hover-popup p-4" style="background-image: url('{% static 'images/loan.png' %}');">
                 <button class="btn btn-outline-light mt-3">Click Here →</button>
             </div>
         </div>
         <div class="col-md-4">
             <h3>International Bussiness </h3>
-            <div class="service-card text-white text-center hover-popup p-4" style="background-image: url('static/images/Bus_inter.png');">
-               
+            <div class="service-card text-white text-center hover-popup p-4" style="background-image: url('{% static 'images/Bus_inter.png' %}');">
                 <button class="btn btn-outline-light mt-3">Click Here →</button>
             </div>
         </div>
     </div>
 </section>
+
 <!-- Update Popup Section -->
 <section class="content-container">
     <div class="ticker-section">
@@ -126,22 +138,10 @@
         </div>
       </section>
     </div>
-  
-    {% comment %} <div class="video-section">
-        <iframe width="560" height="315" 
-                src="https://www.youtube.com/embed/fDGmk4s-HoQ?controls=0&rel=0&playsinline=1&cc_load_policy=0&enablejsapi=1&loop=1&playlist=fDGmk4s-HoQ&autoplay=1" 
-                frameborder="0" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen 
-                loop 
-                style="pointer-events: none;">
-        </iframe>
-      </div> {% endcomment %}
-  </section>
-  
+</section>
 
 <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </body>
 </html>

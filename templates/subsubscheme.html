@@ -13,20 +13,46 @@
 <body>
 
 <!-- Header -->
-<header class="container-fluid d-flex flex-wrap justify-content-between align-items-center py-3 px-4">
-    <div class="main_page1-logo">MSME SCHEMS</div>
-    <nav class="main_page1-nav d-none d-md-flex gap-3">
-        <a href={% url "index" %}>Home</a>
-        <a href={% url "schemes" %}>Schemes</a>
-        <a href="#">Blocks</a>
-        <a href="#">Accounts</a>
-        <a href="#">Docs</a>
+<!-- Header -->
+<header class="container-fluid py-3 px-4 bg-dark">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="main_page1-logo text-white fw-bold fs-4">MSME SCHEMS</div>
+
+    <!-- Toggle button for mobile -->
+    <button class="navbar-toggler d-md-none border-0 bg-transparent text-white" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNavbar" aria-controls="mobileNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+
+  <!-- Collapsible menu -->
+  <div class="collapse navbar-collapse d-md-flex justify-content-between align-items-center mt-3 mt-md-0" id="mobileNavbar">
+    <nav class="main_page1-nav d-flex flex-column flex-md-row gap-3 mb-3 mb-md-0">
+      <a href="{% url 'index' %}" class="text-white">Home</a>
+      <a href="{% url 'schemes' %}" class="text-white">Schemes</a>
+      <a href="#" class="text-white">Blocks</a>
+      <a href="#" class="text-white">Accounts</a>
+      <a href="#" class="text-white">Docs</a>
     </nav>
-    <div class="main_page1-buttons d-flex gap-2">
-        <button class="btn btn-outline-light btn-sm">Login</button>
-        <button class="btn btn-primary btn-sm">Create account</button>
+    <div class="main_page1-buttons d-flex flex-column flex-md-row gap-2">
+      <button class="btn btn-outline-light btn-sm">Login</button>
+      <button class="btn btn-primary btn-sm">Create account</button>
     </div>
+  </div>
+
+  <!-- Inline CSS to fix hamburger icon visibility -->
+  <style>
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+      width: 1.5em !important;
+      height: 1.5em !important;
+      display: inline-block !important;
+    }
+    .navbar-toggler {
+      padding: 0.25rem 0.75rem !important;
+    }
+  </style>
 </header>
+
 
 <section class="main_page1-hero container text-center py-5">
     <h3 class="display-5 fw-bold">SEARCH MY MSME SCHEMS BY MINISTRY</h3>

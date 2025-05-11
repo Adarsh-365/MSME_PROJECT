@@ -3,17 +3,17 @@ body {
     color: white;
 }
 
-.main_page1-feature-card h3{
+.main_page1-feature-card h3 {
     position: center;
     font-size: calc(1.3rem + .6vw);
     border-radius: 20px;
     background: radial-gradient(circle, #6a0dad, #181857);
 }
-.col-md-4 h3{
+
+.col-md-4 h3 {
     position: center;
     font-size: calc(1.3rem + .6vw);
     border-radius: 20px;
-  
     background: radial-gradient(circle, #6a0dad, #181857);
 }
 
@@ -30,12 +30,11 @@ body {
     padding: 10px;
 }
 
-.col-md-6 h3{
+.col-md-6 h3 {
     position: center;
     font-size: calc(1.3rem + .6vw);
     border-radius: 20px;
     background: radial-gradient(circle, #6a0dad, #181857);
-   
 }
 
 header {
@@ -101,7 +100,6 @@ header {
     }
 }
 
-
 .hover-popup {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -111,12 +109,9 @@ header {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
-  .update-ticker {
-    width: 50vw;              /* Half the window width */
-    height: 200px;            /* 200px height */
+.update-ticker {
+    width: 50vw;
+    height: 200px;
     overflow: hidden;
     border: 1px solid #ccc;
     border-radius: 12px;
@@ -125,31 +120,31 @@ header {
     position: relative;
     margin: 40px auto;
     box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  }
+}
 
-  .ticker-wrapper {
+.ticker-wrapper {
     height: 100%;
     display: flex;
     flex-direction: column;
     animation: scroll-up 8s linear infinite;
-  }
+}
 
-  .ticker-move {
+.ticker-move {
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .ticker-item {
-    height: 50px;             /* 200px / 4 items = 50px each */
+.ticker-item {
+    height: 50px;
     line-height: 50px;
     padding: 0 18px;
     background: #e0f7fa;
     border-bottom: 1px solid #ccc;
     color: #00695c;
     font-size: 1.1rem;
-  }
+}
 
-  @keyframes scroll-up {
+@keyframes scroll-up {
     0% { transform: translateY(0); }
     20% { transform: translateY(0); }
     25% { transform: translateY(-50px); }
@@ -159,8 +154,7 @@ header {
     75% { transform: translateY(-150px); }
     95% { transform: translateY(-150px); }
     100% { transform: translateY(0); }
-  }
-
+}
 
 .scheme-card {
     border-radius: 12px;
