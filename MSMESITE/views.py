@@ -30,8 +30,8 @@ def register_scheme(request,scheme):
                  data = json.load(file)
             
             
-            print(scheme)
-            # scheme = str(scheme).replace('%20',' ')
+            # print(scheme)
+            # scheme = unquote(scheme)
             scheme = unquote(scheme)
             request.session["schems"] = scheme
         
@@ -49,7 +49,7 @@ def nanmainpage(request,scheme):
             
     
             
-            scheme = str(scheme).replace('%20',' ')
+            scheme = unquote(scheme)
             request.session["subsubscheme"] = scheme
             subscheme =  request.session.get("SubScmens")
             subsubscheme = request.session.get("subsubscheme")
@@ -70,18 +70,18 @@ def mainpage(request,scheme):
             
     
             
-            scheme = str(scheme).replace('%20',' ')
+            scheme = unquote(scheme)
             request.session["subsubscheme"] = scheme
             subscheme =  request.session.get("SubScmens")
             subsubscheme = request.session.get("subsubscheme")
             # print(scheme)
             MainSchems = request.session.get("MainSchems")
-            print(subsubscheme)
+            # print(subsubscheme)
             SCHEME = request.session.get("schems")
-            print([key for key in data['Scheme'][SCHEME][MainSchems][subscheme]])
+            # print([key for key in data['Scheme'][SCHEME][MainSchems][subscheme]])
             SCHEMESLIST= data['Scheme'][SCHEME][MainSchems][subscheme][subsubscheme]
-            print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-            print(SCHEMESLIST)
+            
+      
             return render(request, 'mainpage.html',{'scheme': SCHEMESLIST})
 
 def subsubscheme(request,scheme):
@@ -91,16 +91,16 @@ def subsubscheme(request,scheme):
             
     
             
-            scheme = str(scheme).replace('%20',' ')
+            scheme = unquote(scheme)
             request.session["SubScmens"] = scheme
             MainSchems = request.session.get("MainSchems")
             SCHEME = request.session.get("schems")
             SCHEMESLIST=[sche for sche in data['Scheme'][SCHEME][MainSchems][scheme]]
-            print(SCHEMESLIST)
+            # print(SCHEMESLIST)
             if 'NaN' in SCHEMESLIST:
-                print(SCHEMESLIST)
+                # print(SCHEMESLIST)
                 SCHEMESLIST= data['Scheme'][SCHEME][MainSchems][scheme]['NaN']
-                print(SCHEMESLIST)
+                # print(SCHEMESLIST)
                 return render(request, 'mainpage.html',{'scheme': SCHEMESLIST})
             return render(request, 'subsubscheme.html',{"SCHEMESLIST": SCHEMESLIST})
 
@@ -112,15 +112,15 @@ def SUB_SCHEMES(request,scheme):
             
     
             
-            scheme = str(scheme).replace('%20',' ')
+            scheme = unquote(scheme)
             request.session["MainSchems"] = scheme
          
             SCHEME = request.session.get("schems")
            
             SCHEMESLIST=[sche for sche in data['Scheme'][SCHEME][scheme]]
-            print(SCHEMESLIST)
+            # print(SCHEMESLIST)
             if 'NaN' in SCHEMESLIST:
-                print(SCHEMESLIST)
+                # print(SCHEMESLIST)
                 SCHEMESLIST= data['Scheme'][SCHEME][scheme]['NaN']['NaN']
           
                 return render(request, 'mainpage.html',{'scheme': SCHEMESLIST})
