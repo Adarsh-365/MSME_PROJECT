@@ -20,5 +20,12 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    # path('register-scheme/<str:scheme>/', views.register_scheme, name='register_scheme')
+
+    path('register-scheme/<str:scheme>/', views.register_scheme, name='register_scheme'),
+    #  path('subscheme/', views.SUB_SCHEMES, name='subscheme'),subsubscheme
+     path('subscheme/<str:scheme>/', views.SUB_SCHEMES, name='subscheme'),
+     path('subsubscheme/<str:scheme>/', views.subsubscheme, name='subsubscheme'),
+     path('mainpage/<str:scheme>/', views.mainpage, name='mainpage'),
     path('schemes/', views.SCHEMES, name='schemes'),
 ]

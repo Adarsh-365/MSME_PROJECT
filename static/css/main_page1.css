@@ -160,3 +160,14 @@ header {
     95% { transform: translateY(-150px); }
     100% { transform: translateY(0); }
   }
+
+
+.scheme-card {
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+
+.scheme-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}

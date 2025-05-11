@@ -36,48 +36,37 @@
         <button class="btn btn-outline-light">Book an Appointment</button>
     </div>
 </section>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card shadow-sm scheme-card">
+                <div class="card-body">
+                    <h3 class="card-title text-primary mb-4">{{ scheme.schemename }}</h3>
 
-<div class="row">
-    {% for scheme in SCHEMESLIST %}
-        <div class="col-md-4 mb-4 wow">
-            <div class="main_page2-feature-card text-center hover-popup" style="background-color: none; padding: 30px; border-radius: 8px;">
-                <button type="button" class="btn btn-primary scheme-button" 
-                        onclick="handleSchemeClick('{{ scheme|urlencode }}')"
-                        style="font-size: 1.5rem; padding: 10px 20px; border-radius: 6px;">
-                    {{ scheme }}
-                </button>
+                    <div class="mb-3">
+                        <h6 class="text-muted">Description</h6>
+                        <p class="card-text">{{ scheme.Description }}</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <h6 class="text-muted">Nature of Assistance</h6>
+                        <p class="card-text">{{ scheme.Nature_of_assistance }}</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <h6 class="text-muted">Who Can Apply</h6>
+                        <p class="card-text">{{ scheme.Who_can_apply }}</p>
+                    </div>
+
+                    <div>
+                        <h6 class="text-muted">How to Apply</h6>
+                        <p class="card-text">{{ scheme.How_to_apply }}</p>
+                    </div>
+                </div>
             </div>
         </div>
-    {% endfor %}
+    </div>
 </div>
-
-<script>
-    async function handleSchemeClick(scheme) {
-        try {
-            window.location.href = `/register-scheme/${scheme}/`;
-
-  
-        } catch (error) {
-            console.error("Error:", error);
-        }
-    }
-
-    // CSRF helper
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== "") {
-            const cookies = document.cookie.split(";");
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + "=")) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-</script>
 
 
 
