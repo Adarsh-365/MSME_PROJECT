@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import json
 from django.http import JsonResponse
-
+from urllib.parse import unquote
 def index(request):
     return render(request, 'index.html')
 
@@ -31,7 +31,8 @@ def register_scheme(request,scheme):
             
             
             print(scheme)
-            scheme = str(scheme).replace('%20',' ')
+            # scheme = str(scheme).replace('%20',' ')
+            scheme = unquote(scheme)
             request.session["schems"] = scheme
         
             SCHEMESLIST=[sche for sche in data['Scheme'][scheme]]
