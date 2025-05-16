@@ -14,6 +14,10 @@ def SCHEMES(request):
     
     return render(request, 'schems.html',{"SCHEMESLIST": SCHEMESLIST})
 
+def state(request):
+   
+        
+    return render(request, 'state.html')
 
 # def register_scheme(request, scheme):
 #     # Do something with the scheme

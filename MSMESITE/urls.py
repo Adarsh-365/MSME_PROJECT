@@ -28,4 +28,5 @@ urlpatterns = [
      path('subsubscheme/<str:scheme>/', views.subsubscheme, name='subsubscheme'),
      path('mainpage/<str:scheme>/', views.mainpage, name='mainpage'),
     path('schemes/', views.SCHEMES, name='schemes'),
+    path('state/', views.state, name='state'),
 ]
