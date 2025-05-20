@@ -17,7 +17,10 @@ def SCHEMES(request):
 def state(request):
    
         
-    return render(request, 'state.html')
+    return render(request, 'map.html')
+
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
 # def register_scheme(request, scheme):
 #     # Do something with the scheme

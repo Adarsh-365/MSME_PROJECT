@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f4f7fa;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #2d3e50;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .profile {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .profile img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .profile h3 {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    .nav {
+      list-style: none;
+    }
+    .nav li {
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #34495e;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .nav li:hover,
+    .nav li.active {
+      background-color: #1abc9c;
+    }
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+    .content {
+      display: none;
+    }
+    .content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button.save-btn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #1abc9c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button.save-btn:hover {
+      background-color: #16a085;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .nav li {
+        flex: 1 1 30%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="profile">
+        {% load static %}
+      <img src="{% static 'images/profile.jpg' %}" alt="User" />
+      <h3>Adarsh Tayde</h3>
+    </div>
+    <ul class="nav">
+      <li class="active" data-tab="personal">Personal Info</li>
+      <li data-tab="company">Company Info</li>
+      <li data-tab="subscription">Subscription</li>
+      <li data-tab="purchase">Purchase</li>
+      <li data-tab="settings">Settings</li>
+      <li data-tab="logout">Logout</li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="content active" id="personal">
+      <h2>Personal Info</h2>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" value="adarsh@example.com">
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" value="+91 9876543210">
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" value="Warangal, India">
+      </div>
+      <button class="save-btn">Save</button>
+    </div>
+
+    <div class="content" id="company">
+      <h2>Company Info</h2>
+      <div class="form-group">
+        <label>Company</label>
+        <input type="text" value="Triangle Simulation Pvt Ltd">
+      </div>
+      <div class="form-group">
+        <label>Role</label>
+        <input type="text" value="Software Engineer">
+      </div>
+      <div class="form-group">
+        <label>Experience</label>
+        <input type="text" value="2 Years">
+      </div>
+      <button class="save-btn">Save</button>
+    </div>
+
+    <div class="content" id="subscription">
+      <h2>Subscription</h2>
+      <div class="form-group">
+        <label>Plan</label>
+        <input type="text" value="Premium">
+      </div>
+      <div class="form-group">
+        <label>Start Date</label>
+        <input type="date" value="2025-01-01">
+      </div>
+      <div class="form-group">
+        <label>Renewal Date</label>
+        <input type="date" value="2026-01-01">
+      </div>
+      <button class="save-btn">Save</button>
+    </div>
+
+    <div class="content" id="purchase">
+      <h2>Purchase History</h2>
+      <ul>
+        <li>Python Automation Tool - ₹999 - March 2025</li>
+        <li>Network Monitoring Suite - ₹1499 - Feb 2025</li>
+      </ul>
+    </div>
+
+    <div class="content" id="settings">
+      <h2>Settings</h2>
+      <div class="form-group">
+        <label>Theme</label>
+        <input type="text" value="Light">
+      </div>
+      <div class="form-group">
+        <label>Notifications</label>
+        <input type="text" value="Enabled">
+      </div>
+      <div class="form-group">
+        <label>Account Status</label>
+        <input type="text" value="Active">
+      </div>
+      <button class="save-btn">Save</button>
+    </div>
+
+    <div class="content" id="logout">
+      <h2>Logout</h2>
+      <p>You have been logged out successfully.</p>
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.nav li');
+    const contents = document.querySelectorAll('.content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

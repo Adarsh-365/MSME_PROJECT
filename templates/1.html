@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>India Map with Clickable States</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 90vh;
+      width: 100%;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<h3 style="text-align:center;">India Map (with PoK) - Click on any State</h3>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  // Initialize map
+  const map = L.map('map').setView([22.5, 79], 5);
+
+  // Add OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 7,
+    minZoom: 4,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Load local GeoJSON file (must be in same directory as this HTML file)
+  fetch("india.geojson")
+    .then(response => response.json())
+    .then(data => {
+      L.geoJSON(data, {
+        style: {
+          color: "#2d3436",
+          weight: 1,
+          fillColor: "#00cec9",
+          fillOpacity: 0.5
+        },
+        onEachFeature: function (feature, layer) {
+          const name = feature.properties.name || "Unknown";
+          layer.on('click', function () {
+            layer.bindPopup(`<b>State:</b> ${name}`).openPopup();
+          });
+        }
+      }).addTo(map);
+    })
+    .catch(error => {
+      console.error("Error loading GeoJSON:", error);
+    });
+</script>
+
+</body>
+</html>

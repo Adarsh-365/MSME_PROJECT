@@ -17,8 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.contrib import admin
+from django.urls import path, include
+from django.shortcuts import redirect
+
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+   path('admin/', admin.site.urls),
+    path('users/', include('users.urls')),
+    path('register/', lambda request: redirect('register')), 
+    path('login/', lambda request: redirect('login')), 
     path('', views.index, name='index'),
     # path('register-scheme/<str:scheme>/', views.register_scheme, name='register_scheme')
 
@@ -29,4 +37,5 @@ urlpatterns = [
      path('mainpage/<str:scheme>/', views.mainpage, name='mainpage'),
     path('schemes/', views.SCHEMES, name='schemes'),
     path('state/', views.state, name='state'),
+    path('dashboard/', views.dashboard, name='dashboard'),
 ]

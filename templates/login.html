@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Professional UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #1f2937;
+        }
+        .main_page1-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+        .main_page1-nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .main_page1-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .main_page1-nav a:hover {
+            color: #93c5fd;
+        }
+        .navbar-toggler {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .main_page1-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #1f2937;
+                padding: 1rem;
+            }
+            .main_page1-nav.active {
+                display: flex;
+            }
+            .navbar-toggler {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <header>
+        <div class="header-container">
+            <a href="#" class="main_page1-logo">MSME SCHEMES</a>
+            <nav class="main_page1-nav" id="mobileNavbar">
+                <a href="#">Home</a>
+                <a href="#">Schemes</a>
+                <a href="#">Blocks</a>
+                <a href="#">Accounts</a>
+                <a href="#">Docs</a>
+            </nav>
+            <button class="navbar-toggler" type="button" aria-label="Toggle navigation" onclick="toggleNavbar()">
+                <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24">
+                    <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h2 class="text-2xl font-bold text-gray-800 text-center mb-6">Login to Your Account</h2>
+            
+            {% if form.errors %}
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6" role="alert">
+                    <p>Invalid username or password. Please try again.</p>
+                </div>
+            {% endif %}
+
+            <form method="post" action="{% url 'login' %}" class="space-y-6">
+                {% csrf_token %}
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                    <input type="text" name="username" id="username" required
+                           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" name="password" id="password" required
+                           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+                <div>
+                    <button type="submit"
+                            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Sign In
+                    </button>
+                </div>
+            </form>
+            <p class="mt-4 text-center text-sm text-gray-600">
+                Don't have an account? <a href="{% url 'register' %}" class="font-medium text-indigo-600 hover:text-indigo-500">Sign up</a>
+            </p>
+        </div>
+    </main>
+
+    <section class="footer-section bg-dark text-white py-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 col-md-3 text-center text-md-start">
+                    <h5 class="mb-3">Company Name</h5>
+                    <p class="mb-0">Empowering your future with innovative solutions.</p>
+                </div>
+                <div class="col-12 col-md-3 text-center">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Terms of Service</a></li>
+                    </ul>
+                    <div class="social-links mt-3">
+                        <a href="https://facebook.com" class="text-white me-3" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://twitter.com" class="text-white me-3" aria-label="Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com" class="text-white me-3" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://instagram.com" class="text-white" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 text-center text-md-end">
+                    <h5 class="mb-3">Contact Us</h5>
+                    <p class="mb-1">Email: <a href="mailto:support@company.com" class="text-white text-decoration-none">support@company.com</a></p>
+                    <p class="mb-0">Phone: <a href="tel:+1234567890" class="text-white text-decoration-none">+1 (234) 567-890</a></p>
+                </div>
+                <div class="col-12 col-md-3 text-center">
+                    <h5 class="mb-3">Our Location</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509325!2d144.9537353153167!3d-37.81627927975181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f0d9c1b%3A0x5045675218ce6e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1634567890123!5m2!1sen!2sus" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2025 Company Name. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleNavbar() {
+            const navbar = document.getElementById('mobileNavbar');
+            navbar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
